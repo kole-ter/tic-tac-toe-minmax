@@ -3,7 +3,6 @@
 <head>
 <meta http-equiv=Content-Type content="text/html; charset=utf-8">
 <meta name=Generator content="Microsoft Word 15 (filtered)">
-<style>
 <!--
  /* Font Definitions */
  @font-face
@@ -64,7 +63,6 @@ div.WordSection1
 ul
 	{margin-bottom:0cm;}
 -->
-</style>
 
 </head>
 
