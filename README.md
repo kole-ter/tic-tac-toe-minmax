@@ -1,8 +1,4 @@
-<html>
 
-<head>
-<meta http-equiv=Content-Type content="text/html; charset=utf-8">
-<meta name=Generator content="Microsoft Word 15 (filtered)">
 <!--
  /* Font Definitions */
  @font-face
