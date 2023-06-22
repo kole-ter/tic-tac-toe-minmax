@@ -1,27 +1,27 @@
 
 
 # TIC TAC TOE MINIMAX
+  
 
-
-Implementation of minimax strategy for tic tac toe 3x3.
-Player 1  X
-Player 2  O
+Implementation of minimax strategy for tic tac toe 3x3.  
+Player 1 = X  
+Player 2 = O
 
 
 <h2>Game Modes</h2>
 
-•	Player vs. AI (Default setting)
-•	Player vs. Random generator
-•	Player vs. Player (pvp)
-
+•	Player vs. AI (Default setting)  
+•	Player vs. Random generator  
+•	Player vs. Player (pvp)  
+  
 
 <h2>Game Instructions</h2>
 
-•	press 'g' to change gamemode (pvp or ai)
-•	press '0' to change ai level to 0 (random)
-•	press '1' to change ai level to 1 (impossible)
+•	press 'g' to change gamemode (pvp or ai)  
+•	press '0' to change ai level to 0 (random)  
+•	press '1' to change ai level to 1 (impossible)  
 •	press 'r' to restart the game
-
+  
 
 <h2>Minimax Algorithm</h2>
 
