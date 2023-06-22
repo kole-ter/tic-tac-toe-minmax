@@ -651,7 +651,7 @@ href="TIC%20TAC%20TOE%20MINIMAX.fld/colorschememapping.xml">
    Name="Smart Link"/>
  </w:LatentStyles>
 </xml><![endif]-->
-<style>
+
 <!--
  /* Font Definitions */
  @font-face
