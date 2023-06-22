@@ -8,7 +8,7 @@ Player 1  X
 Player 2  O
 
 
-<h1>Game Modes</h1>
+<h2>Game Modes<h2>
 
 •	Player vs. AI (Default setting)
 •	Player vs. Random generator
