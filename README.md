@@ -71,7 +71,7 @@ ul
 <div class=WordSection1>
 
 # TIC TAC TOE MINIMAX
-<p class=MsoNormal><span lang=EN-GB>&nbsp;</span></p>
+
 <p class=MsoNormal><span lang=EN-GB>Implementation of minimax strategy for tic
 tac toe 3x3.</span></p>
 
