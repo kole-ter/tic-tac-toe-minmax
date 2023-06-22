@@ -70,8 +70,7 @@ ul
 
 <div class=WordSection1>
 
-<p class=MsoNormal><b><span lang=EN-GB style='font-size:24.0pt'>TIC TAC TOE
-MINIMAX</span></b></p>
+# TIC TAC TOE MINIMAX
 
 <p class=MsoNormal><span lang=EN-GB>&nbsp;</span></p>
 
