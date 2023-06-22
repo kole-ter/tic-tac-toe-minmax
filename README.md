@@ -15,7 +15,7 @@ Player 2  O
 •	Player vs. Player (pvp)
 
 
-<h1>Game Instructions</h1>
+<h2>Game Instructions</h2>
 
 •	press 'g' to change gamemode (pvp or ai)
 •	press '0' to change ai level to 0 (random)
@@ -23,6 +23,6 @@ Player 2  O
 •	press 'r' to restart the game
 
 
-<h1>Minimax Algorithm</h1>
+<h2>Minimax Algorithm</h2>
 
 The minimax algorithm is a decision-making algorithm used in two-player games, such as tic-tac-toe, checkers, chess and go. It is a recursive algorithm that evaluates all possible moves and outcomes within the game state tree, and selects the next best possible move for the AI.
