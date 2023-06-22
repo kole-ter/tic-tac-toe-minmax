@@ -1,4 +1,5 @@
 import copy
+from typing import Optional
 
 import pygame
 import sys
@@ -19,11 +20,9 @@ class Board:
         self.empty_sqrs = self.squares  # creation of a list
         self.marked_sqrs = 0
 
-        # print(self.square)
-
     def mark_square(self, row, col, player):
+        """to mark a square and to know number of marked sq"""
         self.squares[row][col] = player
-        # each time we mark a sq we want to encrase :
         self.marked_sqrs += 1
 
     def available_square(self, row, col):
@@ -35,19 +34,20 @@ class Board:
     def is_empty(self):
         return self.marked_sqrs == 0
 
-    def get_empty_sqrs(self) -> list:
+    def get_empty_sqrs(self) -> list[tuple]:
         empty_sqrs = []
         for row in range(BOARD_ROWS):
             for col in range(BOARD_COLS):
                 if self.available_square(row, col):
-                    empty_sqrs.append((row, col))
-        # this will create a list of tuples
+                    empty_sqrs.append(row, col)
         return empty_sqrs
 
-    def final_state(self, show=False):
-        """return 0 if there is no win yet (doesnt mean tie
+    def final_state(self, show=False) -> int:
+
+        """return 0 if there is no win yet (doesnt mean a tie)
            return 1 if player1 wins
            return 2 i player2 wins"""
+
         # vertical wins
         for col in range(BOARD_COLS):
             if self.squares[0][col] == self.squares[1][col] == self.squares[2][col] != 0:
@@ -88,10 +88,11 @@ class Board:
                 end_pos = (WIDTH - 20, 20)
                 pygame.draw.line(screen, color, start_pos, end_pos, LINE_WIDTH)
             return self.squares[0][2]
-        return 0  # no win yet
+        return 0
 
 
 class AI:
+    """ implements counter player random or minimax"""
 
     def __init__(self, level=1, player=2):
         self.player = player
@@ -102,13 +103,15 @@ class AI:
         indx = random.randrange(0, len(empty_sqrs))
         return empty_sqrs[indx]  # (row,col)
 
-    def minimax(self, board, maximazing):
+    def minimax(self, board: Board, maximazing: bool) -> tuple[int, Optional[tuple]]:
+
+        """ AI is minimizing (player 2)"""
 
         # terminal cases
         case = board.final_state()
         # player 1 wins:
         if case == 1:
-            return 1, None  # (eval, move) vysledek ktery dostanu až dojede branch uplne do konce
+            return 1, None
         # AI (player 2) wins:
         elif case == 2:
             return -1, None
@@ -118,54 +121,48 @@ class AI:
 
         if maximazing:
             # initialization with any big number
-            max_eval = (-100)
+            max_eval = -100
             best_move = None
             empty_sqrs = board.get_empty_sqrs()
 
             for row, col in empty_sqrs:
-                # we want to create new board:
+                # to create new board:
                 temp_board = copy.deepcopy(board)
                 temp_board.mark_square(row, col, 1)  # player 1
                 eval = self.minimax(temp_board, False)[0]  # [0] we want return value of eval not move
                 if eval > max_eval:
                     max_eval = eval
                     best_move = (row, col)
-                    # print(f"max eval is {max_eval} and best move is {best_move}")
 
             return max_eval, best_move
 
-        # AI code
         elif not maximazing:
-            # initialization with any big number
             min_eval = 100
             best_move = None
             empty_sqrs = board.get_empty_sqrs()
 
-            for (row, col) in empty_sqrs:
-                # we want to create new board:
+            for row, col in empty_sqrs:
                 temp_board = copy.deepcopy(board)
                 temp_board.mark_square(row, col, self.player)
                 eval = self.minimax(temp_board, True)[0]
-                # [0] we want return value of eval not move
                 if eval < min_eval:
                     min_eval = eval
-                    best_move = (row, col)
-                    # print(f" eval is {min_eval} and best move is {best_move}")
+                    best_move = row, col
 
             return min_eval, best_move
 
-    def evaluation(self, main_board):
+    def evaluation(self, main_board) -> tuple:
 
         if self.level == 0:
             eval = "random"
             move = self.random_choice(main_board)
         else:
-            # minimax algorhytm chois
+            # minimax algorithm choice
             eval, move = self.minimax(main_board, False)
 
         print(f"AI has chosen to marked the square in pos {move} with an eval of {eval}")
 
-        return move  # (row, col)
+        return move
 
 
 class Game:
@@ -178,7 +175,6 @@ class Game:
         self.draw_lines()
 
     def draw_lines(self):
-
         # bug fix for reset, paint the screen
         screen.fill(BG_COLOUR)
 
@@ -265,14 +261,11 @@ def main():
                 mouse_X = event.pos[0]  # X
                 mouse_Y = event.pos[1]  # Y
 
-                # (X,Y) tuple of the coordinates on the screen, fist position [0] == X
                 row = int(mouse_Y // SQ_SIZE)
                 col = int(mouse_X // SQ_SIZE)
-                # // operator for division that rounds down to whole number, cooridnate 100 is equal to 0
 
                 if board.available_square(row, col):
                     game.make_move(row, col)
-                    # print(board.squares)
                     if game.is_over():
                         game.running = False
 
