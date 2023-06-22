@@ -15,7 +15,7 @@ style='font-family:Symbol'>=</span><span lang=EN-GB> O</span></p>
 
 <p class=MsoNormal><span lang=EN-GB>&nbsp;</span></p>
 
-<p class=MsoNormal><b><span lang=EN-GB style='font-size:16.0pt'>Game Modes</span></b></p>
+<p class=MsoNormal><b><span lang=EN-GB style='font-size:16.0'>Game Modes</span></b></p>
 
 <p class=MsoNormal><span lang=EN-GB>&nbsp;</span></p>
 
