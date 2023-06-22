@@ -973,7 +973,7 @@ ul
 	mso-bidi-font-family:"Times New Roman";
 	mso-bidi-theme-font:minor-bidi;
 	mso-fareast-language:EN-US;}
-</style>
+
 <![endif]-->
 </head>
 
