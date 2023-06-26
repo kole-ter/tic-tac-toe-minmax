@@ -3,7 +3,7 @@
 # TIC TAC TOE MINIMAX
   
 
-Implementation of minimax strategy for tic tac toe 3x3.  
+Implementation of minimax strategy for tic tac toe 3x3  
 Player 1 = X  
 Player 2 = O
 
